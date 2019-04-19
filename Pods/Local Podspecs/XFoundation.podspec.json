@@ -1,0 +1,45 @@
+{
+  "name": "XFoundation",
+  "version": "0.0.1",
+  "summary": "XF.....迅速的开发简单的应用,迅速的开发简单的应用,迅速的开发简单的应用",
+  "description": "迅速的开发简单的应用,迅速的开发简单的应用,迅速的开发简单的应用",
+  "homepage": "https://github.com/xxdzyyh/XFoundation",
+  "license": "MIT (xxdzyyh)",
+  "authors": {
+    "xxdzyyh": "591392966@qq.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/xxdzyyh/XFoundation.git",
+    "branch": "master"
+  },
+  "public_header_files": "XFoundation/Header/*.h",
+  "dependencies": {
+    "MJRefresh": [
+
+    ]
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4"
+  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "XFoundation/Base/*"
+    },
+    {
+      "name": "Request",
+      "source_files": "XFoundation/Request/**/*"
+    },
+    {
+      "name": "View",
+      "source_files": "XFoundation/View/*"
+    },
+    {
+      "name": "App",
+      "source_files": "XFoundation/App/*"
+    }
+  ]
+}
