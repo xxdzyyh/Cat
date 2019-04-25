@@ -1,28 +1,25 @@
 //
-//  HomeVC.swift
+//  GeneMapVC.swift
 //  Cat
 //
-//  Created by xiaoniu on 2019/4/19.
+//  Created by xiaoniu on 2019/4/25.
 //  Copyright © 2019 com.xiaoniu88. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-class HomeVC: XTableViewVC {
-    
+class GeneMapVC: XTableViewVC {
+
     let disposeBag = DisposeBag()
-    
-    var plainData : NSMutableArray?
-    var groupData : NSMutableDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "瞄星人"
+        self.title = "基因大全"
         
         Observable.of(DataCenter.sharedApp.dataReady).subscribe(onNext: { (ready) in
-           print(ready) 
+            print(ready) 
             if ready {
                 
                 self.dataSource = DataCenter.sharedApp.catGene.postionNames as Array<AnyObject>
@@ -46,5 +43,5 @@ class HomeVC: XTableViewVC {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-}
 
+}

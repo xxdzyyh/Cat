@@ -33,7 +33,7 @@ open class XSimpleTableViewVC: XTableViewVC {
             cell = UITableViewCell.init(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
         }
         
-        let data : NSDictionary = self.dataSource?[indexPath.row] as! NSDictionary;
+        let data : NSDictionary = self.dataSource[indexPath.row] as! NSDictionary;
         
         let desc = data[kDesc]
         let value = data[kValue]
@@ -45,7 +45,7 @@ open class XSimpleTableViewVC: XTableViewVC {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data : NSDictionary = self.dataSource?[indexPath.row] as! NSDictionary;
+        let data : NSDictionary = self.dataSource[indexPath.row] as! NSDictionary;
       
         let value = data[kValue]
         let type = data[kType]

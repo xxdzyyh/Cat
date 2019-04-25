@@ -37,9 +37,9 @@ public class XTableViewCell: UITableViewCell {
     }
     
     static func registerForTableView(_ tableView:UITableView,withIdentify identify:String) {
-        let className = NSStringFromClass(self) 
+        let className = NSStringFromClass(self).components(separatedBy: CharacterSet.init(charactersIn: ".")).last!
         let classBundle = Bundle.init(for: self)
-        let path = classBundle .path(forResource: className, ofType: "nib")
+        let path = classBundle.path(forResource: className, ofType: "nib")
         
         if (path != nil) {
             let nib = UINib.init(nibName: className, bundle: classBundle)
@@ -53,7 +53,7 @@ public class XTableViewCell: UITableViewCell {
     }
 
     static func cellForTableView(_ tableView: UITableView) -> (UITableViewCell) {
-        let className = NSStringFromClass(self) 
+        let className = XRuntimeHelper.className(withOutNameSpace: self) 
       
         return self.cellForTableView(tableView, withIdentify: className)
     }
@@ -70,4 +70,5 @@ public class XTableViewCell: UITableViewCell {
         
         return cell!
     }
+    
 }

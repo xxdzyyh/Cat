@@ -11,12 +11,19 @@ import Cartography
 
 open class XTableViewVC: XRequestVC,UITableViewDelegate,UITableViewDataSource {
     
-    var dataSource : NSMutableArray? {
-        didSet {
-            self.tableView.reloadData()
-        } 
-    }
+    private var _dataSource : Array<AnyObject> = Array() 
     
+    var dataSource : Array<AnyObject> {
+        set {
+            _dataSource = newValue 
+            self.tableView.reloadData()
+        }
+        
+        get {
+            return _dataSource
+        }
+    }
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +45,7 @@ open class XTableViewVC: XRequestVC,UITableViewDelegate,UITableViewDataSource {
     //MARK: - UITableViewDataSource
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource?.count ?? 1
+        return self.dataSource.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +54,11 @@ open class XTableViewVC: XRequestVC,UITableViewDelegate,UITableViewDataSource {
             let className: String = NSStringFromClass(self.cellClass()!)
             
             if let classType = NSClassFromString(className) as? XTableViewCell.Type {
-                return classType.cellForTableView(tableView)
+                let cell : XTableViewCell = classType.cellForTableView(tableView) as! XTableViewCell
+                
+                cell.configWithData(self.dataSource[indexPath.row])
+                
+                return cell
             }
         }
                         
@@ -63,7 +74,6 @@ open class XTableViewVC: XRequestVC,UITableViewDelegate,UITableViewDataSource {
         tableView.showsHorizontalScrollIndicator = false;
         tableView.tableFooterView = UIView.init();
         tableView.isDirectionalLockEnabled = true;
-        tableView.rowHeight = 44;
         
         return tableView
     }()

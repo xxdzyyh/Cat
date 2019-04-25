@@ -10,26 +10,6 @@ import UIKit
 
 class ViewController: XTableViewVC {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        read()
-    }
-    
-    func read() {
-        if let path = Bundle.main.path(forResource: "cat", ofType:".md") {
-            do {
-                let data = try String(contentsOfFile: path, encoding: .utf8)
-                if data.lengthOfBytes(using: .utf8) > 0 {
-                    let myStrings = data.components(separatedBy: NSCharacterSet.newlines)
-                    print(myStrings)
-                }
-            } catch {
-                
-            }
-        }
-        
-    }
 
 }
 

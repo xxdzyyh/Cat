@@ -19,6 +19,14 @@ class GeneComponent: NSObject {
     // 基因如何得到
     var access : String?
     
+    var parent : String?
+    
+    // 可以由哪些基因合成来
+    var childGeneNames : Array<String>?
+    
+    // 可以合成哪些基因
+    var parentGeneNames : Array<String>?
+    
      init(name : String!, postion:String!, ability:String!,access:String?) {
         super.init()
         

@@ -20,4 +20,8 @@ public class XRuntimeHelper: NSObject {
         return obj
     }
 
+    static func className(withOutNameSpace someClass:AnyClass) -> String {
+         return NSStringFromClass(someClass).components(separatedBy: CharacterSet.init(charactersIn: ".")).last!
+    }
+    
 }

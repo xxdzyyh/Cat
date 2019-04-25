@@ -11,13 +11,6 @@ import UIKit
 open class XInsetLabel: UILabel {
     
     var insets = UIEdgeInsets.zero
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     override open func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: self.insets));

@@ -18,6 +18,8 @@ class HomeCell: XTableViewCell {
     }
     
     override func configWithData(_ data: Any) {
+        let string = data as! String
         
+        self.mainLabel.text = string
     }
 }
